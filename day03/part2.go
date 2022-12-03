@@ -12,7 +12,7 @@ const NumLines = 1000
 const BinaryLength = 12
 
 func main() {
-	file, err := os.Open("input.txt")
+	file, err := os.Open("day03/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
