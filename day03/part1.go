@@ -43,11 +43,11 @@ func main() {
 		}
 	}
 
-	powerConsumption := binaryToDecimal(gammaRate) * binaryToDecimal(epsilonRate)
+	powerConsumption := binaryArrayToDecimal(gammaRate) * binaryArrayToDecimal(epsilonRate)
 	fmt.Println(powerConsumption)
 }
 
-func binaryToDecimal(input [BinaryLength]int) int {
+func binaryArrayToDecimal(input [BinaryLength]int) int {
 	result := 0
 	power := 0
 	for i := len(input) - 1; i >= 0; i-- {

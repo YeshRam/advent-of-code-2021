@@ -9,7 +9,7 @@ import (
 )
 
 const NumLines = 1000
-const BinaryLength = 12
+const LineLength = 12
 
 func main() {
 	file, err := os.Open("day03/input.txt")
@@ -20,7 +20,7 @@ func main() {
 	data := make([]string, NumLines)
 	o2 := map[string]bool{}
 	co2 := map[string]bool{}
-	oneCounts := [BinaryLength]int{}
+	oneCounts := [LineLength]int{}
 
 	scanner := bufio.NewScanner(file)
 	row := 0
@@ -67,7 +67,7 @@ func main() {
 
 	generatorRating := 0
 	for key := range o2 {
-		generatorRating = binaryToDecimal(key)
+		generatorRating = binaryStringToDecimal(key)
 	}
 
 	for col := 0; col < len(data[0]); col++ {
@@ -100,14 +100,14 @@ func main() {
 
 	scrubberRating := 0
 	for key := range co2 {
-		scrubberRating = binaryToDecimal(key)
+		scrubberRating = binaryStringToDecimal(key)
 	}
 
 	lifeSupportRating := generatorRating * scrubberRating
 	fmt.Println(lifeSupportRating)
 }
 
-func binaryToDecimal(input string) int {
+func binaryStringToDecimal(input string) int {
 	runes := []rune(input)
 
 	result := 0
